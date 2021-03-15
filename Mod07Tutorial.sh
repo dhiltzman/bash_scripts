@@ -1,4 +1,6 @@
 #! /bin/bash
+#Mod07 Tutorial
+#Author: David Hiltzman
 
 lyrics_string="Quisiera:Ayer:cambiarle:conocí:el:un:final
 :cielo:al:sin:cuento|Las:sol|Y:barras:un:y:hombre:los:sin
@@ -22,7 +24,7 @@ lyrics_string=$(echo $lyrics_string | tr ":" " ")
 lyrics=($(echo $lyrics_string | cut -d " " -f 1-))
 lyrics_lens=${#lyrics[*]}
 
-for (( i=0; i<$lyrics_len; i=i+2 ));
+for (( i=0; i -lt $lyrics_len; i=i+2 ));
 do
 	song1+="${lyrics[$i]} "
 	song2+="${lyrics[(($i+1))]} "
@@ -42,18 +44,27 @@ song2=$(echo $song2 | tr [:upper:] [:lower:])
 song1=$(echo $song1 | sed 's/\\n/ /g')
 song2=$(echo $song2 | sed 's/\\n/ /g')
 
-song1_array=($(echo -e $song1 | cut -d " " -f 1-))
-song2_array=($(echo -e $song2 | cut -d " " -f 1-))
+song1_array=($(echo $song1 | cut -d " " -f 1-))
+song2_array=($(echo $song2 | cut -d " " -f 1-))
 
 echo ${song1_array[*]}
 
-for i in ${song1_array[*1]};
+for i in ${song1_array[*]};
 do
 	for j in ${song2_array[*]};
 	do
-		if [[ $j == $j ]];then
+		if [[ $j == $i ]];then
 			echo $j
 			duplicates+=("$j ")
 		fi
 	done
 done
+
+echo ${duplicates[*]}
+
+duplicates=($(for k in ${duplicates[*]}; do echo $k; done | sort -u))
+
+echo -e "These words are in both songs:\n"
+echo ${duplicates[*]}
+echo
+read -p "Press Enter to exit the script"
