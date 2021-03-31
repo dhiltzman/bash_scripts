@@ -1,5 +1,4 @@
-Date,Time,Priority,Classification,Description,Packet Type,Source IP, Source Port,
-		Destination IP, Destination Port
+Date,Time,Priority,Classification,Description,Packet Type,Source IP, Source Port,Destination IP, Destination Port
 05/30,19:09:10.917356,2,_Potentially_Bad_Traffic,_BAD-TRAFFIC_same_SRC/DST_,UDP,0.0.0.0,68,255.255.255.255,67
 05/30,19:09:10.918155,2,_Potentially_Bad_Traffic,_BAD-TRAFFIC_same_SRC/DST_,UDP,0.0.0.0,68,255.255.255.255,67
 05/30,19:09:28.472094,2,_Potentially_Bad_Traffic,_ET_DNS_DNS_Query_to_a_.tk_domain_-_Likely_Hostile_,UDP,192.168.88.10,1029,4.2.2.3,53
